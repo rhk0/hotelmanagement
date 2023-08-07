@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'CSS/index.css' %}">
+   
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+
+    <!-- Icon Font Stylesheet -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+   
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+      n
+    />
+
+    <link
+      href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css"
+      rel="stylesheet"
+    />
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <!-- <link href="/css/style.css" rel="stylesheet" />
+    <script src="index.js"></script> -->
+    <title>Document</title>
+    <style>
+
+
+      /* The grid: Four equal columns that floats next to each other */
+      .columnimage {
+        float: left;
+        width: 25%;
+        padding: 10px;
+      }
+
+      /* Style the images inside the grid */
+      .columnimage img {
+        opacity: 0.8;
+        cursor: pointer;
+      }
+
+      .columnimage img:hover {
+        opacity: 1;
+      }
+
+      /* Clear floats after the columns */
+      .rowimage:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* The expanding image container */
+      .containerimage {
+        position: relative;
+        display: none;
+      }
+
+      /* Expanding image text */
+      #imgtext {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        color: white;
+        font-size: 20px;
+      }
+
+      /* Closable button inside the expanded image */
+      .closebtn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        color: white;
+        font-size: 35px;
+        cursor: pointer;
+      }
+      #expandedImg{
+        height: 600px;
+        padding: 50px;
+      }
+    </style>
+
+    
+  </head>
+
+  <body style="margin:0px; padding:0px">
+    <!-- start NAVIGATION Bar -->
+    <section>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'home' %}"><img
+            src="{% static '/img/white-logo.png' %}" alt="" style="width: 200px; margin-left: 20px"/></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'service' %}">service</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="{% url 'rooms' %}">Rooms</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="{% url 'contact' %}">Contact</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <button class="btn btn-outline-light" type="submit"><a class="nav-link "  href="{% url 'booking' %}">Booking</a></button>
+               </form>
+          </div>
+        </div>
+      </nav>
+    </section>
+    <!-- </section> -->
+
+    <!-- carousel start  -->
+    <section class="carousel-bar">
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="{% static '/img/hotelimg1.jpeg' %}"
+              class="d-block w-100"
+              height="660px"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+            src="{% static '/img/hotelimg2.avif' %}"
+              class="d-block w-100"
+              height="660px"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item">
+            <img
+            src="{% static '/img/hotelimg3.avif' %}"
+              class="d-block w-100"
+              height="660px"
+              alt="..."
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- About page start -->
+    <!-- About Start -->
+
+    <div class=" container-fluid container-xxl py-5" >
+      <div class="container" >
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6">
+            <h6 class="section-title text-start text-primary text-uppercase">
+              About Us
+            </h6>
+            <h1 class="mb-4">
+              Welcome to
+              <span class="text-primary text-uppercase">Our Hotel</span>
+            </h1>
+            <p class="mb-4">
+              Our Hotel offers a wide variety of accommodation. Suites attached
+              to our classic guest rooms are spacious, comfortable and well
+              appointed with many additional thoughtful extras.
+            </p>
+            <div class="row g-3 pb-4">
+              <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
+                <div class="border rounded p-1">
+                  <div class="border rounded text-center p-4">
+                    <i class="fa fa-hotel fa-2x text-primary mb-2"></i>
+                    <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                    <p class="mb-0">Rooms</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 wow fadeIn" data-wow-delay="0.3s">
+                <div class="border rounded p-1">
+                  <div class="border rounded text-center p-4">
+                    <i class="fa fa-users-cog fa-2x text-primary mb-2"></i>
+                    <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                    <p class="mb-0">Staffs</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-4 wow fadeIn" data-wow-delay="0.5s">
+                <div class="border rounded p-1">
+                  <div class="border rounded text-center p-4">
+                    <i class="fa fa-users fa-2x text-primary mb-2"></i>
+                    <h2 class="mb-1" data-toggle="counter-up">1234</h2>
+                    <p class="mb-0">Clients</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a class="btn btn-primary py-3 px-5 mt-2" href="">Explore More</a>
+          </div>
+          <div class="col-lg-6">
+            <div class="row g-3">
+              <div class="col-6 text-end">
+                <img
+                  class="img-fluid rounded w-75 wow zoomIn"
+                  data-wow-delay="0.1s"
+                  src="{% static '/img/about-1.jpg' %}"
+                  style="margin-top: 25%"
+                />
+              </div>
+              <div class="col-6 text-start">
+                <img
+                  class="img-fluid rounded w-100 wow zoomIn"
+                  data-wow-delay="0.3s"
+                  src="{% static '/img/about-2.jpg' %}"
+                />
+              </div>
+              <div class="col-6 text-end">
+                <img
+                  class="img-fluid rounded w-50 wow zoomIn"
+                  data-wow-delay="0.5s"
+                  src="{% static '/img/about-3.jpg' %}"
+                />
+              </div>
+              <div class="col-6 text-start">
+                <img
+                  class="img-fluid rounded w-75 wow zoomIn"
+                  data-wow-delay="0.7s"
+                  src="{% static '/img/about-4.jpg' %}"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- About End -->
+ 
+    <!-- Rooms page start -->
+    <section>
+      <!-- Room Start -->
+      <div class="container-fluid container-xxl py-5">
+        <div class="container ">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title text-center text-primary text-uppercase">Our Rooms</h6>
+                <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Rooms</span></h1>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="room-item shadow rounded overflow-hidden">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="{% static '/img/Room-1.jpg' %}" alt="">
+                            <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
+                        </div>
+                        <div class="p-4 mt-2">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="mb-0">Junior Suite</h5>
+                                <div class="ps-2">
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
+                                <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                            </div>
+                            <p class="text-body mb-3">Being in a hotel is the best getaway you can ever get. </p>
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
+                                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="room-item shadow rounded overflow-hidden">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="{% static '/img/Room-2.jpg' %}" alt="">
+                            <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
+                        </div>
+                        <div class="p-4 mt-2">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="mb-0">Executive Suite</h5>
+                                <div class="ps-2">
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
+                                <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                            </div>
+                            <p class="text-body mb-3">Hotel rooms are a second home, only you get to escape.</p>
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
+                                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="room-item shadow rounded overflow-hidden">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="{% static '/img/Room-3.jpg' %}" alt="">
+                            <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
+                        </div>
+                        <div class="p-4 mt-2">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="mb-0">Super Deluxe</h5>
+                                <div class="ps-2">
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
+                                <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                            </div>
+                            <p class="text-body mb-3">People think being famous is so glamorous, but half the time you're in a strange hotel room living out of a suitcase.</p>
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
+                                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="room-item shadow rounded overflow-hidden">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="{% static '/img/Room-1.jpg' %}" alt="">
+                            <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
+                        </div>
+                        <div class="p-4 mt-2">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="mb-0">Super Deluxe</h5>
+                                <div class="ps-2">
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
+                                <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                            </div>
+                            <p class="text-body mb-3">The great advantage of a refuge from home life.</p>
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
+                                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="room-item shadow rounded overflow-hidden">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="{% static '/img/Room-2.jpg' %}" alt="">
+                            <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
+                        </div>
+                        <div class="p-4 mt-2">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="mb-0">Junior Suite</h5>
+                                <div class="ps-2">
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
+                                <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                            </div>
+                            <p class="text-body mb-3">here is a lovely hotel room with luxury bathroom.</p>
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
+                                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="room-item shadow rounded overflow-hidden">
+                        <div class="position-relative">
+                            <img class="img-fluid" src="{% static '/img/Room-3.jpg' %}" alt="">
+                            <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">$100/Night</small>
+                        </div>
+                        <div class="p-4 mt-2">
+                            <div class="d-flex justify-content-between mb-3">
+                                <h5 class="mb-0">Executive Suite</h5>
+                                <div class="ps-2">
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                    <small class="fa fa-star text-primary"></small>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i>3 Bed</small>
+                                <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i>2 Bath</small>
+                                <small><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                            </div>
+                            <p class="text-body mb-3">Luxury is not all that matters in a hotel room .</p>
+                            <div class="d-flex justify-content-between">
+                                <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
+                                <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+  <!-- Room page End -->
+    <!-- Services page  start-->
+    <section>
+      <div class="container-xxl py-5">
+        <div class="container">
+          <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title text-center text-primary text-uppercase">
+              Our Services
+            </h6>
+            <h1 class="mb-5">
+              Explore Our
+              <span class="text-primary text-uppercase">Services</span>
+            </h1>
+          </div>
+          <div class="row g-4">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+              <a class="service-item rounded" href="" style="text-decoration:none;">
+                <div class="service-icon bg-transparent border rounded p-1">
+                  <div
+                    class="w-100 h-100 border rounded d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fa fa-hotel fa-2x text-primary"></i>
+                  </div>
+                </div>
+                <h5 class="mb-3">Rooms & Appartment</h5>
+                <p class="text-body mb-0">
+                  Erat ipsum justo amet duo et elitr dolor, est duo duo eos
+                  lorem sed diam stet diam sed stet lorem.
+                </p>
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+              <a class="service-item rounded" href="" style="text-decoration:none;">
+                <div class="service-icon bg-transparent border rounded p-1">
+                  <div
+                    class="w-100 h-100 border rounded d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fa fa-utensils fa-2x text-primary"></i>
+                  </div>
+                </div>
+                <h5 class="mb-3">Food & Restaurant</h5>
+                <p class="text-body mb-0">
+                  Erat ipsum justo amet duo et elitr dolor, est duo duo eos
+                  lorem sed diam stet diam sed stet lorem.
+                </p>
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+              <a class="service-item rounded" href="" style="text-decoration:none;">
+                <div class="service-icon bg-transparent border rounded p-1">
+                  <div
+                    class="w-100 h-100 border rounded d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fa fa-spa fa-2x text-primary"></i>
+                  </div>
+                </div>
+                <h5 class="mb-3">Spa & Fitness</h5>
+                <p class="text-body mb-0">
+                  Erat ipsum justo amet duo et elitr dolor, est duo duo eos
+                  lorem sed diam stet diam sed stet lorem.
+                </p>
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+              <a class="service-item rounded" href="" style="text-decoration:none;">
+                <div class="service-icon bg-transparent border rounded p-1">
+                  <div
+                    class="w-100 h-100 border rounded d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fa fa-swimmer fa-2x text-primary"></i>
+                  </div>
+                </div>
+                <h5 class="mb-3">Sports & Gaming</h5>
+                <p class="text-body mb-0">
+                  Erat ipsum justo amet duo et elitr dolor, est duo duo eos
+                  lorem sed diam stet diam sed stet lorem.
+                </p>
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+              <a class="service-item rounded" href="" style="text-decoration:none;">
+                <div class="service-icon bg-transparent border rounded p-1">
+                  <div
+                    class="w-100 h-100 border rounded d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fa fa-glass-cheers fa-2x text-primary"></i>
+                  </div>
+                </div>
+                <h5 class="mb-3">Event & Party</h5>
+                <p class="text-body mb-0">
+                  Erat ipsum justo amet duo et elitr dolor, est duo duo eos
+                  lorem sed diam stet diam sed stet lorem.
+                </p>
+              </a>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+              <a class="service-item rounded" href="" style="text-decoration:none;">
+                <div class="service-icon bg-transparent border rounded p-1">
+                  <div
+                    class="w-100 h-100 border rounded d-flex align-items-center justify-content-center"
+                  >
+                    <i class="fa fa-dumbbell fa-2x text-primary"></i>
+                  </div>
+                </div>
+                <h5 class="mb-3">GYM & Yoga</h5>
+                <p class="text-body mb-0">
+                  Erat ipsum justo amet duo et elitr dolor, est duo duo eos
+                  lorem sed diam stet diam sed stet lorem.
+                </p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About End -->
+   
+<!-- 
+      gallary code start   -->
+  <section>
+        <div class='container-fluid' style=" text-align: center">
+          <h2>Tabbed Image Gallery</h2>
+          <p>Click on the images below:</p>
+        </div>
+
+      <!-- The four columns -->
+        <div class="rowimage">
+          <div class="columnimage">
+            <img src="{% static '/img/rooms1.jpg' %}"
+            alt="Nature"
+            style="width: 100%"
+            onclick="myFunction(this);"/>
+          </div>
+          <div class="columnimage">
+            <img src="{% static '/img/rooms2.avif' %}"
+                alt="Snow"
+                style="width: 100%"
+                onclick="myFunction(this);"/>
+          </div>
+          <div class="columnimage">
+            <img src="{% static '/img/rooms3.avif' %}"
+              alt="Mountains"
+              style="width: 100%"
+              onclick="myFunction(this);"/>
+          </div>
+          <div class="columnimage">
+            <img src="{% static '/img/rooms4.avif' %}"
+              alt="Lights"
+            style="width: 100%"
+            onclick="myFunction(this);"/>
+          </div>
+        </div>
+      <div class="containerimage">
+        <span onclick="this.parentElement.style.display='none'" class="closebtn"
+          >&times;</span
+        >
+        <img id="expandedImg" style="width: 100%;" />
+        <div id="imgtext" ></div>
+      </div>
+  </section>
+<!-- gallary code end -->
+
+{% comment %} footer  {% endcomment %}
+
+<div class="container-fluid " style="margin:0px; padding:0px">
+  <!-- Footer -->
+  <footer
+          class="text-center text-lg-start text-white"
+          style="background-color: #1c2331"
+          >
+    <!-- Section: Social media -->
+    <section
+             class="d-flex justify-content-between p-4"
+             style="background-color: #6351ce"
+             >
+      <!-- Left -->
+      <div class="me-5">
+        <span>Get connected with us on social networks:</span>
+      </div>
+      <!-- Left -->
+
+      <!-- Right -->
+      <div>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="text-white me-4">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container-fluid text-center text-md-start ">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto ">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold">Company name</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style=" background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              Here you can use rows and columns to organize your footer
+              content. Lorem ipsum dolor sit amet, consectetur adipisicing
+              elit.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Products</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              <a href="#!" class="text-white">MDBootstrap</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">MDWordPress</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">BrandFlow</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Bootstrap Angular</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Useful links</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p>
+              <a href="#!" class="text-white">Your Account</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Become an Affiliate</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Shipping Rates</a>
+            </p>
+            <p>
+              <a href="#!" class="text-white">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold">Contact</h6>
+            <hr
+                class="mb-4 mt-0 d-inline-block mx-auto"
+                style="width: 60px; background-color: #7c4dff; height: 2px"
+                />
+            <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+            <p><i class="fas fa-envelope mr-3"></i> info@example.com</p>
+            <p><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div
+         class="text-center p-3"
+         style="background-color: rgba(0, 0, 0, 0.2)"
+         >
+      © 2020 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/"
+         >MDBootstrap.com</a
+        >
+    </div>
+    <!-- Copyright -->
+  </footer>
+</div>
+<!-- End of .container -->
+
+
+
+        <script>
+      function myFunction(imgs) {
+        var expandImg = document.getElementById("expandedImg");
+        var imgText = document.getElementById("imgtext");
+        expandImg.src = imgs.src;
+        imgText.innerHTML = imgs.alt;
+        expandImg.parentElement.style.display = "block";
+      }
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
+

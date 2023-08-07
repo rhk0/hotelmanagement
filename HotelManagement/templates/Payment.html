@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payment Gateway</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .inlineimage{
+    max-width:470px;
+    margin-right: 8px;
+    margin-left: 10px
+  }
+  .images{
+      display:
+      inline-block;
+      max-width: 98%;
+      height: auto;
+      width: 22%;
+      margin: 1%;
+      left:20px;
+      text-align: center
+      }
+      
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .form-group input[type="text"],
+    .form-group select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    
+    .form-group .button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .form-group .button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Payment Details</h2>
+    <form>
+        <div class="row">
+            <div class="col-xs-12 col-md-6 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <h3 class="text-center">Payment Details</h3>
+                            <div class="inlineimage"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Mastercard-Curved.png"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Discover-Curved.png"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/Paypal-Curved.png"> <img class="img-responsive images" src="https://cdn0.iconfinder.com/data/icons/credit-card-debit-card-payment-PNG/128/American-Express-Curved.png"> </div>
+                        </div>
+                    </div>
+      <div class="form-group">
+        <label for="payment-method">Payment Method:</label>
+        <select id="payment-method">
+          <option value="upi">UPI</option>
+          <option value="netbanking">Net Banking</option>
+          <option value="cash">Cash</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="amount">Amount:</label>
+        <input type="text" id="amount" placeholder="Enter amount" />
+      </div>
+      
+      <div class="form-group">
+        <label for="upi-id">Transaction ID:</label>
+        <input type="text" id="Transaction-id" placeholder="Enter Transaction ID" />
+      </div>
+
+      <div class="form-group">
+        <label for="comments">Comments</label>
+        <textarea id="comments" placeholder="Enter any additional comments"></textarea>
+      </div>
+      
+      <div class="form-group">
+        <button class="button" type="submit">Proceed to Payment</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
